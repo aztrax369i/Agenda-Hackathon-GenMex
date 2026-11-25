@@ -8,6 +8,9 @@ public class Contacto {
     private String apellido;
     private int telefono;
 
+    private static ArrayList<Contacto> listContacto = new ArrayList<>();
+    private static final int CAPACIDAD_MAXIMA = 10;
+
     //2.Contructor
     public Contacto(String nombre, String apellido, int telefono) {
         this.nombre = nombre;
@@ -53,7 +56,7 @@ public class Contacto {
 
     //metodo-listaContaco (limite 10)
     public ArrayList<Contacto> listarContactos() {
-        return ArrayList;
+        return listContacto;
     }
 
     //metodo-buscarContacto
@@ -77,8 +80,10 @@ public class Contacto {
     }
 
     //metodo-espacioLibres
-    public String espacioLibres(){
-        return "";
+    // Aquí calcularemops los espacios disponoble.
+    public String espacioLibres() {
+        int espacios = CAPACIDAD_MAXIMA - listContacto.size();
+        return "Espacios disponibles: " + espacios;
     }
 
     //5.toString
