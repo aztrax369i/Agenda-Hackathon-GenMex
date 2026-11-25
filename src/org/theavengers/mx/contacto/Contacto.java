@@ -1,6 +1,7 @@
 package org.theavengers.mx.contacto;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Contacto {
     //1.Atributos
@@ -52,13 +53,36 @@ public class Contacto {
     }
 
     //metodo-listaContaco (limite 10)
-    public ArrayList<Contacto> listarContactos() {
-        return ArrayList;
+    public void listaContacto() {
+        if (listContactos.isEmpty()){
+            System.out.println("La agenda está vacía.");
+            return;
+        }
+
+        System.out.println("\n--- Contactos ---");
+        for (int i = 0; i < listContactos.size(); i++){
+            System.out.println((i + 1) + ". " + listContactos.get(i));
+        }
     }
 
     //metodo-buscarContacto
-    public String buscarContacto(String nombre, String apellido, int telefono) {
-        return "";
+    public void buscarContacto(Scanner scan) {
+        System.out.println("Buscar (nombre o apellido): ");
+        String termino = scan.nextLine().trim().toLowerCase();
+
+        boolean encontrado = false;
+
+        for (Contacto c : listContacto){
+            if (c.getNombre().toLowerCase().contains(termino)
+                || c.getApellido().toLowerCase().contains(termino)){
+                System.out.println(c);
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado){
+            System.out.println("No se encontraron contactos con \"" + termino + "\".");
+        }
     }
 
     //metodo-eliminarContacto
