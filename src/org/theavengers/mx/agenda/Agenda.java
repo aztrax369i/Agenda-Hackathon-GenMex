@@ -31,5 +31,15 @@ public class Agenda {
         System.out.println("Contacto añadido: " + c.getNombre() + " " + c.getApellido());
         return c;
     }
+    //Metodo existeContacto
+    public boolean existeContacto(Contacto c) {
+        for (Contacto actual : listContacto) {
+            if (actual.getNombre().equalsIgnoreCase(c.getNombre())
+                    && actual.getApellido().equalsIgnoreCase(c.getApellido())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
