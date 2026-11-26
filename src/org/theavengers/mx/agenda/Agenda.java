@@ -71,4 +71,34 @@ public class Agenda {
     }
 
 
+
+    // Metodo Eliminar contacto----------
+    public boolean eliminarContacto(String nombre, String apellido) {
+        for (int i = 0; i < listContacto.size(); i++) {
+            Contacto actual = listContacto.get(i);
+            if (actual.getNombre().equalsIgnoreCase(nombre)
+                    && actual.getApellido().equalsIgnoreCase(apellido)) {
+                listContacto.remove(i);
+                System.out.println("Contacto eliminado correctamente");
+                return true;
+            }
+        }
+        System.out.println("No se encontró un contacto con ese nombre y apellido");
+        return false;
+    }
+
+    //  Metodo  Espacios libres ----------
+    public int getEspaciosLibres() {
+        return capacidad - listContacto.size();
+    }
+
+    public boolean estaLlena() {
+        return listContacto.size() >= capacidad;
+    }
+
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
 }
