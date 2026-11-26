@@ -54,4 +54,21 @@ public class Agenda {
         }
     }
 
+
+    // Metodo Actualizar contacto ----------
+    public boolean actualizarContacto(String nombre, String apellido, Contacto nuevo) {
+        for (int i = 0; i < listContacto.size(); i++) {
+            Contacto actual = listContacto.get(i);
+            if (actual.getNombre().equalsIgnoreCase(nombre)
+                    && actual.getApellido().equalsIgnoreCase(apellido)) {
+                listContacto.set(i, nuevo);
+                System.out.println("Contacto actualizado correctamente");
+                return true;
+            }
+        }
+        System.out.println("No se encontró un contacto con ese nombre y apellido");
+        return false;
+    }
+
+
 }
