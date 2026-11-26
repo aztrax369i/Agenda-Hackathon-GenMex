@@ -42,4 +42,16 @@ public class Agenda {
         return false;
     }
 
+    //Metodo Ver agenda ----------
+    public void verAgenda() {
+        if (listContacto.isEmpty()) {
+            System.out.println("La agenda está vacía");
+            return;
+        }
+        System.out.println("Contactos en la agenda:");
+        for (int i = 0; i < listContacto.size(); i++) {
+            System.out.println((i + 1) + ". " + listContacto.get(i));
+        }
+    }
+
 }
